@@ -20,9 +20,12 @@ class HashTable {
   }
 
   get(key){
-     
-    for (let i =0; i < this.data.length; i++){
-      if(this.data[i][0]=key){
+    //get the exact array
+     const address = this._hash(key)
+     //incase there're more the one data inside the address we to loop thro the subArray
+     const bucket = this.data[address]
+    for (let i =0; i < bucket.length; i++){
+      if(this.data[i][0]===key){
         return this.data[i][1]
       }
     }
