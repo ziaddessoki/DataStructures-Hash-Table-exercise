@@ -11,7 +11,10 @@ class HashTable {
       this.data[address]=[];  
       this.data[address].push([key,value]) 
     }
-    //else is this address contains data, expand this address by adding another array
+    //else is this address contains data,to avoid collision and over writing this.address 
+    //will expand this address by adding another array inside the address
+    //[['data1',1000]['data2',53]]
+    this.data[address].push([key,value]) 
     return this.data
 
   }
